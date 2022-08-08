@@ -15,7 +15,7 @@ model User {
   isAdmin   Boolean @default(false)
   posts Post[]
   favorite  Favorite[]
-  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  createdAt DateTime @default(now())
 }
 
 model Post {
@@ -28,7 +28,7 @@ model Post {
   author  User  @relation(fields: [authorId], references: [id])
   favorite  Favorite[]
   publishedAt DateTime?
-  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  createdAt DateTime @default(now())
 }
 
 model Favorite {
@@ -37,7 +37,7 @@ model Favorite {
   user  User  @relation(fields: [userId], references: [id])
   postId  Int
   post  Post  @relation(fields: [postId], references: [id])
-  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  createdAt DateTime @default(now())
 }
 
 model News {
@@ -46,7 +46,7 @@ model News {
   content String
   typeOfNews  TypeOfNews
   publishedAt DateTime?
-  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  createdAt DateTime @default(now())
 }
 
 enum TypeOfNews {
