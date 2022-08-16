@@ -16,7 +16,6 @@ module.exports = {
     },
   ],
   framework: "@storybook/react",
-  staticDirs: ["../public"],
   webpackFinal: async (baseConfig) => {
     baseConfig.resolve.modules = [
       ...(baseConfig.resolve.modules || []),

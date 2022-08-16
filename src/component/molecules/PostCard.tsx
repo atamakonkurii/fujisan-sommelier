@@ -16,11 +16,16 @@ export const PostCard = (props: Props) => {
   return (
     <Link href={`/post/${id}`}>
       <div className="flex">
-        <Image src={`${postPhotoUrl}`} alt="post" />
+        <Image src={postPhotoUrl} width={300} height={200} alt="post" />
         <div>
           <div className="">{content}</div>
           <div className="flex">
-            <Image src={`${publisherPhotoUrl}`} alt="publisher" />
+            <Image
+              src={publisherPhotoUrl}
+              width={100}
+              height={800}
+              alt="publisher"
+            />
             <div className="pl-2 text-sm font-semibold">{date}</div>
             <div className="pl-2 text-sm font-semibold">{favoriteCount}</div>
           </div>
