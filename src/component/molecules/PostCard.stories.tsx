@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof PostCard> = () => {
       postPhotoUrl={"/img/exp_fujisan.png"}
       content={"content"}
       favoriteCount={0}
-      publisherPhotoUrl={"/img/exp_fujisan.png"}
+      publisherPhotoUrl={"/img/face.jpg"}
       date={"2020/09/09"}
     />
   );
