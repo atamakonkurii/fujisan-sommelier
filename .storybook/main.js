@@ -6,6 +6,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-addon-next",
     {
       name: "@storybook/addon-postcss",
       options: {
@@ -16,6 +17,10 @@ module.exports = {
     },
   ],
   framework: "@storybook/react",
+  core: {
+    builder: "webpack5",
+  },
+  staticDirs: ["../public"],
   webpackFinal: async (baseConfig) => {
     baseConfig.resolve.modules = [
       ...(baseConfig.resolve.modules || []),
