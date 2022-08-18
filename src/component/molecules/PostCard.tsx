@@ -15,9 +15,9 @@ export const PostCard = (props: Props) => {
     props;
   return (
     <Link href={`/post/${id}`}>
-      <div className="max-w-3xl bg-white rounded-lg shadow-md">
-        <div className="flex ml-4">
-          <div className="relative w-96 h-72">
+      <div className="max-w-full bg-white rounded-lg shadow-md sm:max-w-3xl">
+        <div className="py-4 sm:flex sm:ml-4">
+          <div className="relative mx-6 h-72 sm:w-96">
             <Image
               src={postPhotoUrl}
               layout="fill"
@@ -25,11 +25,11 @@ export const PostCard = (props: Props) => {
               alt="post"
             />
           </div>
-          <div className="relative my-8 mx-4 w-96">
+          <div className="relative my-4 mx-6 sm:my-8 sm:mx-4 sm:w-96">
             <div className="font-semibold tracking-tight whitespace-pre-line line-clamp-6">
               {content}
             </div>
-            <div className="absolute bottom-0 left-0">
+            <div className="sm:absolute sm:bottom-0 sm:left-0">
               <div className="flex items-center">
                 <div className="w-12">
                   <Image
