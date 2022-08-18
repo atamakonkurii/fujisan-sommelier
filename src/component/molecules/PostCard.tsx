@@ -15,19 +15,40 @@ export const PostCard = (props: Props) => {
     props;
   return (
     <Link href={`/post/${id}`}>
-      <div className="flex">
-        <Image src={postPhotoUrl} width={300} height={200} alt="post" />
-        <div>
-          <div className="">{content}</div>
-          <div className="flex">
+      <div className="max-w-3xl bg-white rounded-lg shadow-md">
+        <div className="flex ml-4">
+          <div className="relative w-96 h-72">
             <Image
-              src={publisherPhotoUrl}
-              width={100}
-              height={800}
-              alt="publisher"
+              src={postPhotoUrl}
+              layout="fill"
+              objectFit="contain"
+              alt="post"
             />
-            <div className="pl-2 text-sm font-semibold">{date}</div>
-            <div className="pl-2 text-sm font-semibold">{favoriteCount}</div>
+          </div>
+          <div className="relative my-8 mx-4 w-96">
+            <div className="font-semibold tracking-tight whitespace-pre-line line-clamp-6">
+              {content}
+            </div>
+            <div className="absolute bottom-0 left-0">
+              <div className="flex items-center">
+                <div className="w-12">
+                  <Image
+                    src={publisherPhotoUrl}
+                    width={30}
+                    height={30}
+                    layout="responsive"
+                    alt="publisher"
+                    className="rounded-full"
+                  />
+                </div>
+                <div className="pl-2 text-sm font-medium text-slate-600">
+                  {date}
+                </div>
+                <div className="pl-2 text-sm font-medium text-slate-600">
+                  ♡{favoriteCount}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
