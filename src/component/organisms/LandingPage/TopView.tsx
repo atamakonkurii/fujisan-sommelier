@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 export const TopView: FC = () => {
   return (
-    <div className="text-white bg-gradient-to-r from-sky-500 to-indigo-500">
+    <div className="text-white bg-gradient-to-r from-sky-400 to-indigo-400">
       <div className="pt-10 text-xs text-center sm:text-xl">
         富士山のフリー素材なら
       </div>
