@@ -4,12 +4,13 @@ import { SiteLogo } from "src/component/atoms/Svg/SiteLogo";
 
 export const StandardFooter: FC = () => {
   return (
-    <footer className="bg-slate-700">
-      <div className="pt-8 pl-8 text-sm text-white">
+    <footer className="">
+      <div className="pt-8 pl-8 text-sm text-black">
         <Link href="/">
-          <a>
-            <SiteLogo color={"white"} height={40} width={70} />
-          </a>
+          <div className="flex">
+            <SiteLogo height={30} width={54} />
+            <div>富士山ソムリエ</div>
+          </div>
         </Link>
 
         <div className="pt-6">
