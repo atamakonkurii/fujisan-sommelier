@@ -1,26 +1,23 @@
 import type { FC } from "react";
-import { Button } from "src/component/Button";
-import { PostCard } from "src/component/molecules/PostCard";
+import { LandingPage } from "src/component/templates/LandingPage";
+import {
+  BaseNewsDate,
+  BaseNewsTitle,
+  BaseNewsType,
+} from "src/constants/baseText";
+import type { LandingPageNews } from "src/type/types";
+
+const landingPageNews: LandingPageNews = {
+  id: "test",
+  title: BaseNewsTitle,
+  publishedAt: BaseNewsDate,
+  categoryName: BaseNewsType,
+};
 
 export const Index: FC = () => {
-  const handleClick = () => {
-    window.alert("Hello, World!");
-  };
-
   return (
     <div>
-      <h2>Index</h2>
-      <Button tag="button" className="p-2" onClick={handleClick}>
-        Click me!
-      </Button>
-      <PostCard
-        id={"dummy"}
-        postPhotoUrl={"/img/exp_fujisan.png"}
-        content={"content"}
-        favoriteCount={0}
-        publisherPhotoUrl={"/img/exp_fujisan.png"}
-        date={"2020/09/09"}
-      />
+      <LandingPage {...landingPageNews} />
     </div>
   );
 };
