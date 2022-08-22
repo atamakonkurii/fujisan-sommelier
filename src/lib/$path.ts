@@ -10,7 +10,8 @@ export type PagesPath = typeof pagesPath
 export const staticPath = {
   favicon_ico: '/favicon.ico',
   img: {
-    exp_fujisan_png: '/img/exp_fujisan.png'
+    exp_fujisan_webp: '/img/exp_fujisan.webp',
+    face_webp: '/img/face.webp'
   }
 } as const
 
