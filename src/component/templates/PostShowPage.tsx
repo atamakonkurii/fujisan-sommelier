@@ -1,28 +1,24 @@
 import type { FC } from "react";
-import { LpNews } from "src/component/organisms/LandingPage/LpNews";
-import { NewPosts } from "src/component/organisms/LandingPage/NewPosts";
-import { TopView } from "src/component/organisms/LandingPage/TopView";
-import { TrendPosts } from "src/component/organisms/LandingPage/TrendPosts";
-import type { LandingPageNews } from "src/type/types";
+import { PostShow } from "src/component/organisms/PostShow";
+import {
+  BaseContentForPostCard,
+  BaseDateForPostCard,
+  BaseFavoriteCountForPostCard,
+  BasePhotoUrlForPostCard,
+  BasePublisherPhotoUrlForPostCard,
+} from "src/constants/baseText";
 
-type Props = LandingPageNews;
-
-export const PostShowPage: FC<Props> = (props) => {
-  const PostShowPageNews = props;
+export const PostShowPage: FC = () => {
   return (
     <div>
-      <div>
-        <TopView />
-      </div>
-      <div className="pt-4 pb-2">
-        <LpNews {...PostShowPageNews} />
-      </div>
-      <div className="p-4 bg-sky-50">
-        <TrendPosts />
-      </div>
-      <div className="p-4 bg-slate-50">
-        <NewPosts />
-      </div>
+      <PostShow
+        id={"dummy"}
+        postPhotoUrl={BasePhotoUrlForPostCard}
+        content={BaseContentForPostCard}
+        favoriteCount={BaseFavoriteCountForPostCard}
+        publisherPhotoUrl={BasePublisherPhotoUrlForPostCard}
+        date={BaseDateForPostCard}
+      />
     </div>
   );
 };
