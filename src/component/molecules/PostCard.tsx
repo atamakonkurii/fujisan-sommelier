@@ -14,7 +14,7 @@ export const PostCard = (props: Props) => {
   const { content, date, favoriteCount, id, postPhotoUrl, publisherPhotoUrl } =
     props;
   return (
-    <Link href={`/post/${id}`}>
+    <Link href={`/posts/${id}`}>
       <div className="max-w-full bg-white rounded-lg shadow-md sm:max-w-3xl">
         <div className="py-4 sm:flex sm:ml-4">
           <div className="relative mx-6 h-72 sm:w-96">

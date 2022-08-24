@@ -1,16 +1,8 @@
 import Image from "next/image";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import type { PostShowType } from "src/type/types";
 
-type Props = {
-  id: string;
-  postPhotoUrl: string;
-  content: string;
-  favoriteCount: number;
-  publisherPhotoUrl: string;
-  date: string;
-};
-
-export const PostShow = (props: Props) => {
+export const PostShow = (props: PostShowType) => {
   const { content, date, favoriteCount, postPhotoUrl, publisherPhotoUrl } =
     props;
   return (

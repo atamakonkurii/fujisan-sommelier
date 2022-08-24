@@ -30,3 +30,12 @@ export type NewsShowResponse = {
     content: string;
   };
 };
+
+export type PostShowType = {
+  id: string;
+  postPhotoUrl: string;
+  content: string;
+  favoriteCount: number;
+  publisherPhotoUrl: string;
+  date: string;
+};
