@@ -10,7 +10,7 @@ export const TopView: FC = () => {
         富士山ソムリエ
       </div>
       <div className="pb-10 pl-32 text-xs text-center sm:pl-52">
-        fujisan-smmelier
+        fujisan-sommelier
       </div>
     </div>
   );
