@@ -19,8 +19,8 @@ export const LandingPage: FC<Props> = (props) => {
       <div className="pt-4 pb-2">
         <LpNews {...landingPageNews} />
       </div>
-      <div className="sm:flex">
-        <div className="w-3/4">
+      <div className="lg:flex">
+        <div className="lg:w-3/4">
           <div className="flex justify-center p-4 bg-sky-50">
             <TrendPosts />
           </div>
@@ -28,8 +28,8 @@ export const LandingPage: FC<Props> = (props) => {
             <NewPosts />
           </div>
         </div>
-        <div className="w-1/4">
-          <div className="flex justify-center">
+        <div className="bg-slate-100 lg:w-1/4">
+          <div className="flex justify-center py-4">
             <Link href={"https://kazukiohta.com/"}>
               <a>
                 <Image
