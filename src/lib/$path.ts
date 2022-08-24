@@ -13,7 +13,8 @@ export const staticPath = {
   favicon_ico: '/favicon.ico',
   img: {
     exp_fujisan_webp: '/img/exp_fujisan.webp',
-    face_webp: '/img/face.webp'
+    face_webp: '/img/face.webp',
+    ogotte_banner_webp: '/img/ogotte_banner.webp'
   }
 } as const
 
