@@ -10,7 +10,7 @@ import {
 
 export const PostShowPage: FC = () => {
   return (
-    <div>
+    <div className="flex justify-center py-10 px-2 bg-sky-50">
       <PostShow
         id={"dummy"}
         postPhotoUrl={BasePhotoUrlForPostCard}
