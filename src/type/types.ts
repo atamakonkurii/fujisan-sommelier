@@ -39,3 +39,9 @@ export type PostShowType = {
   publisherPhotoUrl: string;
   date: string;
 };
+
+export type PostShowPageType = {
+  photoUrl: string | null;
+  content: string | null;
+  publishedAt: Date | null;
+};
