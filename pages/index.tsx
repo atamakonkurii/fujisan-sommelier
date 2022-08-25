@@ -2,7 +2,8 @@ import type { CustomNextPage } from "next";
 import { StandardLayout } from "src/component/layout/StandardLayout";
 import { Index } from "src/pages/index";
 
-const IndexPage: CustomNextPage = () => {
+const IndexPage: CustomNextPage = (posts) => {
+  console.warn(posts);
   return <Index />;
 };
 

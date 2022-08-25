@@ -1,5 +1,5 @@
 export type LandingPageNews = {
-  id: string;
+  id: number;
   title: string;
   publishedAt: string;
   categoryName: string;
@@ -32,7 +32,7 @@ export type NewsShowResponse = {
 };
 
 export type PostShowType = {
-  id: string;
+  id: number;
   postPhotoUrl: string;
   content: string;
   favoriteCount: number;

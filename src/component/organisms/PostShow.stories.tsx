@@ -20,7 +20,7 @@ export default {
 const Template: ComponentStory<typeof PostShow> = () => {
   return (
     <PostShow
-      id={"dummy"}
+      id={1}
       postPhotoUrl={BasePhotoUrlForPostCard}
       content={BaseContentForPostCard}
       favoriteCount={BaseFavoriteCountForPostCard}

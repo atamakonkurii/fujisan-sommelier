@@ -17,7 +17,7 @@ export default {
 } as ComponentMeta<typeof LandingPage>;
 
 const landingPageNews: LandingPageNews = {
-  id: "test",
+  id: 1,
   title: BaseNewsTitle,
   publishedAt: BaseNewsDate,
   categoryName: BaseNewsType,

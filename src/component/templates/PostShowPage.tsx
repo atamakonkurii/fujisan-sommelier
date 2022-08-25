@@ -14,7 +14,7 @@ export const PostShowPage: FC<PostShowPageType> = (post) => {
   return (
     <div className="flex justify-center py-10 px-2 bg-sky-50">
       <PostShow
-        id={"dummy"}
+        id={1}
         postPhotoUrl={photoUrl || BasePhotoUrlForPostCard}
         content={content || BaseContentForPostCard}
         favoriteCount={25 || BaseFavoriteCountForPostCard}
