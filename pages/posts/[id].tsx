@@ -9,16 +9,18 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {},
-  };
-};
-
-const ShowPostsPage: CustomNextPage = () => {
-  return <ShowPosts />;
+const ShowPostsPage: CustomNextPage = (post) => {
+  return <ShowPosts {...post} />;
 };
 
 ShowPostsPage.getLayout = StandardLayout;
 
 export default ShowPostsPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(`${process.env.WEBAPP_URL}/api/posts/dummy`);
+  const post = await res.json();
+  return {
+    props: post,
+  };
+};
