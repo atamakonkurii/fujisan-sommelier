@@ -2,6 +2,7 @@ import type { CustomNextPage } from "next";
 import type { GetStaticProps } from "next";
 import { StandardLayout } from "src/component/layout/StandardLayout";
 import { ShowPosts } from "src/pages/posts/[id]";
+import type { PostShowPageType } from "src/type/types";
 
 export const getStaticPaths = async () => {
   // eslint-disable-next-line arrow-body-style
@@ -9,7 +10,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const ShowPostsPage: CustomNextPage = (post) => {
+const ShowPostsPage: CustomNextPage<PostShowPageType> = (post) => {
   return <ShowPosts {...post} />;
 };
 

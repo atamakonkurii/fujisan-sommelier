@@ -1,6 +1,10 @@
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 // eslint-disable-next-line no-restricted-imports
 import React from "react";
+import {
+  BaseContentForPostCard,
+  BasePhotoUrlForPostCard,
+} from "src/constants/baseText";
 
 import { PostShowPage } from "./PostShowPage";
 
@@ -11,7 +15,13 @@ export default {
 } as ComponentMeta<typeof PostShowPage>;
 
 const Template: ComponentStory<typeof PostShowPage> = () => {
-  return <PostShowPage />;
+  return (
+    <PostShowPage
+      photoUrl={BasePhotoUrlForPostCard}
+      content={BaseContentForPostCard}
+      publishedAt={null}
+    />
+  );
 };
 
 export const Normal = Template.bind({});
