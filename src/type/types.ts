@@ -1,5 +1,5 @@
 export type LandingPageNews = {
-  id: string;
+  id: number;
   title: string;
   publishedAt: string;
   categoryName: string;
