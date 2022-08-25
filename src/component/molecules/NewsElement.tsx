@@ -2,7 +2,7 @@ import Link from "next/link";
 import { NewsType } from "src/component/atoms/Text/NewsType";
 
 type Props = {
-  id: string;
+  id: number;
   date: string;
   typeOfNews: string;
   title: string;

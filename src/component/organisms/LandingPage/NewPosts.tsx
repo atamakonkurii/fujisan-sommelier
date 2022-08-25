@@ -13,7 +13,7 @@ export const NewPosts: FC = () => {
     <div>
       <div className="mb-3 text-3xl font-bold">New</div>
       <PostCard
-        id={"dummy"}
+        id={1}
         postPhotoUrl={BasePhotoUrlForPostCard}
         content={BaseContentForPostCard}
         favoriteCount={BaseFavoriteCountForPostCard}
@@ -22,7 +22,7 @@ export const NewPosts: FC = () => {
       />
       <div className="mt-4"></div>
       <PostCard
-        id={"dummy"}
+        id={1}
         postPhotoUrl={BasePhotoUrlForPostCard}
         content={BaseContentForPostCard}
         favoriteCount={BaseFavoriteCountForPostCard}

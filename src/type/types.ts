@@ -32,7 +32,7 @@ export type NewsShowResponse = {
 };
 
 export type PostShowType = {
-  id: string;
+  id: number;
   postPhotoUrl: string;
   content: string;
   favoriteCount: number;
