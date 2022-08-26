@@ -41,7 +41,9 @@ export type PostShowType = {
 };
 
 export type PostShowPageType = {
-  photoUrl: string | null;
-  content: string | null;
-  publishedAt: Date | null;
+  post: {
+    photoUrl: string | null;
+    content: string | null;
+    publishedAt: Date | null;
+  };
 };
