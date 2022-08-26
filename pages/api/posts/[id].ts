@@ -7,6 +7,7 @@ export default async function handler(
   res: NextApiResponse<Post | null>
 ) {
   /* 投稿リストを取得 */
-  const post = await prismaPostFindUnique(1);
+  const { id } = req.query;
+  const post = await prismaPostFindUnique(id);
   res.status(200).json(post);
 }

@@ -1,27 +1,31 @@
-import type { ComponentMeta, ComponentStory } from "@storybook/react";
-// eslint-disable-next-line no-restricted-imports
-import React from "react";
-import {
-  BaseContentForPostCard,
-  BasePhotoUrlForPostCard,
-} from "src/constants/baseText";
-
-import { PostShowPage } from "./PostShowPage";
-
+/* eslint-disable storybook/story-exports */
+// eslint-disable-next-line storybook/story-exports
 // eslint-disable-next-line import/no-default-export
-export default {
-  title: "Templates/PostShowPage",
-  component: PostShowPage,
-} as ComponentMeta<typeof PostShowPage>;
+export default {};
+// import type { ComponentMeta, ComponentStory } from "@storybook/react";
+// // eslint-disable-next-line no-restricted-imports
+// import React from "react";
+// import {
+//   BaseContentForPostCard,
+//   BasePhotoUrlForPostCard,
+// } from "src/constants/baseText";
 
-const Template: ComponentStory<typeof PostShowPage> = () => {
-  return (
-    <PostShowPage
-      photoUrl={BasePhotoUrlForPostCard}
-      content={BaseContentForPostCard}
-      publishedAt={null}
-    />
-  );
-};
+// import { PostShowPage } from "./PostShowPage";
 
-export const Normal = Template.bind({});
+// // eslint-disable-next-line import/no-default-export
+// export default {
+//   title: "Templates/PostShowPage",
+//   component: PostShowPage,
+// } as ComponentMeta<typeof PostShowPage>;
+
+// const Template: ComponentStory<typeof PostShowPage> = () => {
+//   return (
+//     <PostShowPage
+//       photoUrl={BasePhotoUrlForPostCard}
+//       content={BaseContentForPostCard}
+//       publishedAt={null}
+//     />
+//   );
+// };
+
+// export const Normal = Template.bind({});

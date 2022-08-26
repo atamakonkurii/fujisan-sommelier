@@ -10,7 +10,11 @@ import {
 import type { PostShowPageType } from "src/type/types";
 
 export const PostShowPage: FC<PostShowPageType> = (post) => {
-  const { content, photoUrl, publishedAt } = post;
+  // console.warn(post);
+  // eslint-disable-next-line react/destructuring-assignment
+  const { content, photoUrl, publishedAt } = post.post;
+  // console.warn(content);
+  // console.warn(photoUrl);
   return (
     <div className="flex justify-center py-10 px-2 bg-sky-50">
       <PostShow
