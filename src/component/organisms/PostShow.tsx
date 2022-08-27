@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+// import { TwitterTweetEmbed } from "react-twitter-embed";
 import type { PostShowType } from "src/type/types";
 
 export const PostShow = (props: PostShowType) => {
@@ -42,9 +42,9 @@ export const PostShow = (props: PostShowType) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center pb-4">
+      {/* <div className="flex justify-center pb-4">
         <TwitterTweetEmbed tweetId={"1554786010617479169"} />
-      </div>
+      </div> */}
     </div>
   );
 };
