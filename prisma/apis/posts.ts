@@ -6,7 +6,7 @@ export const prismaPostFindMany = async () => {
 };
 
 /* 投稿を取得 */
-export const prismaPostFindUnique = async (postId: any) => {
+export const prismaPostFindUnique = async (postId: number) => {
   return await prisma.post.findUnique({
     where: {
       id: postId,
