@@ -1,12 +1,6 @@
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 // eslint-disable-next-line no-restricted-imports
 import React from "react";
-import {
-  BaseNewsDate,
-  BaseNewsTitle,
-  BaseNewsType,
-} from "src/constants/baseText";
-import type { NewsShowResponse } from "src/type/types";
 
 import { ShowNewsContainer } from "./ShowNewsContainer";
 
@@ -16,18 +10,19 @@ export default {
   component: ShowNewsContainer,
 } as ComponentMeta<typeof ShowNewsContainer>;
 
-const newsResponse: NewsShowResponse = {
-  news: {
-    id: "test",
-    title: BaseNewsTitle,
-    publishedAt: BaseNewsDate,
-    category: { name: BaseNewsType },
-    content: "aaa",
-  },
-};
-
 const Template: ComponentStory<typeof ShowNewsContainer> = () => {
-  return <ShowNewsContainer {...newsResponse} />;
+  return (
+    <ShowNewsContainer
+      news={{
+        id: 0,
+        title: "",
+        content: "",
+        typeOfNews: "NOTICE",
+        publishedAt: null,
+        createdAt: new Date(),
+      }}
+    />
+  );
 };
 
 export const Normal = Template.bind({});

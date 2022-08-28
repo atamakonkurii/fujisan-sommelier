@@ -1,12 +1,6 @@
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
 // eslint-disable-next-line no-restricted-imports
 import React from "react";
-import {
-  BaseNewsDate,
-  BaseNewsTitle,
-  BaseNewsType,
-} from "src/constants/baseText";
-import type { LandingPageNews } from "src/type/types";
 
 import { LpNews } from "./LpNews";
 
@@ -16,15 +10,19 @@ export default {
   component: LpNews,
 } as ComponentMeta<typeof LpNews>;
 
-const landingPageNews: LandingPageNews = {
-  id: 1,
-  title: BaseNewsTitle,
-  publishedAt: BaseNewsDate,
-  categoryName: BaseNewsType,
-};
-
 const Template: ComponentStory<typeof LpNews> = () => {
-  return <LpNews news={landingPageNews} />;
+  return (
+    <LpNews
+      news={{
+        id: 0,
+        title: "",
+        content: "",
+        typeOfNews: "NOTICE",
+        publishedAt: null,
+        createdAt: new Date(),
+      }}
+    />
+  );
 };
 
 export const Normal = Template.bind({});

@@ -19,7 +19,7 @@ IndexPage.getLayout = StandardLayout;
 export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resNews = await fetch(`${process.env.WEBAPP_URL}/api/posts/new`);
+  const resNews = await fetch(`${process.env.WEBAPP_URL}/api/news/new`);
   const news = await resNews.json();
 
   if (resNews.status !== 200) {
