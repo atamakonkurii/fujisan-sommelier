@@ -11,7 +11,7 @@ export default {
 } as ComponentMeta<typeof NewPosts>;
 
 const Template: ComponentStory<typeof NewPosts> = () => {
-  return <NewPosts />;
+  return <NewPosts newPosts={[]} />;
 };
 
 export const Normal = Template.bind({});
