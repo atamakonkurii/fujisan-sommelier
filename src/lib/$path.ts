@@ -4,6 +4,15 @@ export const pagesPath = {
       $url: (url?: { hash?: string }) => ({ pathname: '/posts/[id]' as const, query: { id }, hash: url?.hash })
     })
   },
+  "privacy_policy": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/privacy_policy' as const, hash: url?.hash })
+  },
+  "specific_commercial_transaction": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/specific_commercial_transaction' as const, hash: url?.hash })
+  },
+  "term": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/term' as const, hash: url?.hash })
+  },
   $url: (url?: { hash?: string }) => ({ pathname: '/' as const, hash: url?.hash })
 }
 

@@ -8,6 +8,7 @@ import {
   BasePhotoUrlForPostCard,
   BasePublisherPhotoUrlForPostCard,
 } from "src/constants/baseText";
+import { rawDateToYearMonthDay } from "src/utils/dateFormatter";
 
 type Props = {
   trendPosts: Post[];
@@ -27,7 +28,10 @@ export const TrendPosts: FC<Props> = (props) => {
               content={post.content || BaseContentForPostCard}
               favoriteCount={BaseFavoriteCountForPostCard}
               publisherPhotoUrl={BasePublisherPhotoUrlForPostCard}
-              date={BaseDateForPostCard}
+              date={
+                rawDateToYearMonthDay(String(post.publishedAt)) ||
+                BaseDateForPostCard
+              }
             />
             <div className="mt-4"></div>
           </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 // import { TwitterTweetEmbed } from "react-twitter-embed";
 import type { PostShowType } from "src/type/types";
+import { rawDateToYearMonthDay } from "src/utils/dateFormatter";
 
 export const PostShow = (props: PostShowType) => {
   const { content, date, favoriteCount, postPhotoUrl, publisherPhotoUrl } =
@@ -33,7 +34,7 @@ export const PostShow = (props: PostShowType) => {
                 />
               </div>
               <div className="pl-2 text-sm font-medium text-slate-600">
-                {date}
+                {rawDateToYearMonthDay(date)}
               </div>
               <div className="pl-2 text-sm font-medium text-slate-600">
                 ♡{favoriteCount}
