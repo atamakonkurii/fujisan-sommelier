@@ -1,12 +1,12 @@
 import type { Post } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { prismaPostFindMany } from "prisma/apis/posts";
+import { prismaTrendPostFindMany } from "prisma/apis/posts";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Post[]>
 ) {
-  /* 投稿一覧を取得 */
-  const posts = await prismaPostFindMany();
-  res.status(200).json(posts);
+  /* トレンド投稿を取得 */
+  const trendPosts = await prismaTrendPostFindMany();
+  res.status(200).json(trendPosts);
 }
