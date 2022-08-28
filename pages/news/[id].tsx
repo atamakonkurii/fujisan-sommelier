@@ -1,37 +1,37 @@
+import type { News } from "@prisma/client";
 import type { CustomNextPage } from "next";
 import type { GetStaticProps } from "next";
 import { StandardLayout } from "src/component/layout/StandardLayout";
-import { microCmsClient } from "src/lib/microCmsClient";
 import { ShowNews } from "src/pages/news/[id]";
-import type { NewsShowResponse } from "src/type/types";
 
-export const getStaticPaths = async () => {
-  const data = await microCmsClient.get({
-    endpoint: "news",
-  });
-  // eslint-disable-next-line arrow-body-style
-  const paths = data.contents.map((content: { id: string }) => {
-    return `/news/${content.id}`;
-  });
-  return { paths, fallback: false };
+type Props = {
+  news: News;
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const id = String(context?.params?.id);
-  const data = await microCmsClient.get({ endpoint: "news", contentId: id });
-
-  return {
-    props: {
-      news: data,
-    },
-  };
-};
-
-const ShowNewsPage: CustomNextPage<NewsShowResponse> = (props) => {
-  const newsShowResponse = props;
-  return <ShowNews {...newsShowResponse} />;
+const ShowNewsPage: CustomNextPage<Props> = (props) => {
+  const { news } = props;
+  return <ShowNews news={news} />;
 };
 
 ShowNewsPage.getLayout = StandardLayout;
 
 export default ShowNewsPage;
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const id = context.params?.id;
+  const res = await fetch(`${process.env.WEBAPP_URL}/api/news/${id}`);
+  const news = await res.json();
+  return {
+    props: {
+      news,
+    },
+    revalidate: 100,
+  };
+};
