@@ -24,7 +24,7 @@ const landingPageNews: LandingPageNews = {
 };
 
 const Template: ComponentStory<typeof LpNews> = () => {
-  return <LpNews {...landingPageNews} />;
+  return <LpNews news={landingPageNews} />;
 };
 
 export const Normal = Template.bind({});
