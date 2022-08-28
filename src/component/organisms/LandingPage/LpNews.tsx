@@ -1,29 +1,23 @@
+import type { News } from "@prisma/client";
 import Link from "next/link";
 import type { FC } from "react";
 import { NewsElement } from "src/component/molecules/NewsElement";
-import {
-  BaseNewsDate,
-  BaseNewsTitle,
-  BaseNewsType,
-} from "src/constants/baseText";
-import type { LandingPageNews } from "src/type/types";
 import { rawDateToYearMonthDay } from "src/utils/dateFormatter";
 
 type Props = {
-  news: LandingPageNews;
+  news: News;
 };
 
 export const LpNews: FC<Props> = (props) => {
   const { news } = props;
-  const date = rawDateToYearMonthDay(news.publishedAt);
   return (
     <div className="container mx-auto w-11/12 max-w-lg">
       <div className="hover:opacity-50">
         <NewsElement
           id={news.id}
-          date={date || BaseNewsDate}
-          typeOfNews={news.categoryName || BaseNewsType}
-          title={news.title || BaseNewsTitle}
+          date={rawDateToYearMonthDay(String(news.publishedAt))}
+          typeOfNews={news.typeOfNews}
+          title={news.title}
         />
       </div>
       <div className="flex justify-center mt-4 hover:opacity-50">

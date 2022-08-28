@@ -1,10 +1,9 @@
-import type { Post } from "@prisma/client";
+import type { News, Post } from "@prisma/client";
 import type { FC } from "react";
 import { LandingPage } from "src/component/templates/LandingPage";
-import type { LandingPageNews } from "src/type/types";
 
 type Props = {
-  news: LandingPageNews;
+  news: News;
   newPosts: Post[];
   trendPosts: Post[];
 };
