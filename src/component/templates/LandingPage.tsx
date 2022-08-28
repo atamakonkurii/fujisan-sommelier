@@ -1,4 +1,4 @@
-import type { Post } from "@prisma/client";
+import type { News, Post } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
@@ -6,10 +6,9 @@ import { LpNews } from "src/component/organisms/LandingPage/LpNews";
 import { NewPosts } from "src/component/organisms/LandingPage/NewPosts";
 import { TopView } from "src/component/organisms/LandingPage/TopView";
 import { TrendPosts } from "src/component/organisms/LandingPage/TrendPosts";
-import type { LandingPageNews } from "src/type/types";
 
 type Props = {
-  news: LandingPageNews;
+  news: News;
   newPosts: Post[];
   trendPosts: Post[];
 };

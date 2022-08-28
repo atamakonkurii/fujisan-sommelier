@@ -2,17 +2,17 @@ import type { ComponentMeta, ComponentStory } from "@storybook/react";
 // eslint-disable-next-line no-restricted-imports
 import React from "react";
 
-import { LpNews } from "./LpNews";
+import { ShowNewsContainer } from "./ShowNewsContainer";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: "Organisms/LandingPage/LpNews",
-  component: LpNews,
-} as ComponentMeta<typeof LpNews>;
+  title: "Templates/News/ShowNewsContainer ",
+  component: ShowNewsContainer,
+} as ComponentMeta<typeof ShowNewsContainer>;
 
-const Template: ComponentStory<typeof LpNews> = () => {
+const Template: ComponentStory<typeof ShowNewsContainer> = () => {
   return (
-    <LpNews
+    <ShowNewsContainer
       news={{
         id: 0,
         title: "",

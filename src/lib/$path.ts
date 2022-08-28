@@ -1,4 +1,10 @@
 export const pagesPath = {
+  "news": {
+    _id: (id: string | number) => ({
+      $url: (url?: { hash?: string }) => ({ pathname: '/news/[id]' as const, query: { id }, hash: url?.hash })
+    }),
+    $url: (url?: { hash?: string }) => ({ pathname: '/news' as const, hash: url?.hash })
+  },
   "posts": {
     _id: (id: string | number) => ({
       $url: (url?: { hash?: string }) => ({ pathname: '/posts/[id]' as const, query: { id }, hash: url?.hash })

@@ -1,32 +1,17 @@
-import type { Post } from "@prisma/client";
+import type { News, Post } from "@prisma/client";
 import type { CustomNextPage, GetStaticProps } from "next";
 import { StandardLayout } from "src/component/layout/StandardLayout";
-import {
-  BaseNewsDate,
-  BaseNewsTitle,
-  BaseNewsType,
-} from "src/constants/baseText";
 import { Index } from "src/pages/index";
-import type { LandingPageNews } from "src/type/types";
-
-const landingPageNews: LandingPageNews = {
-  id: 1,
-  title: BaseNewsTitle,
-  publishedAt: BaseNewsDate,
-  categoryName: BaseNewsType,
-};
 
 type Props = {
+  news: News;
   newPosts: Post[];
   trendPosts: Post[];
 };
 
 const IndexPage: CustomNextPage<Props> = (props) => {
-  console.warn(props);
-  const { newPosts, trendPosts } = props;
-  return (
-    <Index news={landingPageNews} newPosts={newPosts} trendPosts={trendPosts} />
-  );
+  const { newPosts, news, trendPosts } = props;
+  return <Index news={news} newPosts={newPosts} trendPosts={trendPosts} />;
 };
 
 IndexPage.getLayout = StandardLayout;
@@ -34,6 +19,14 @@ IndexPage.getLayout = StandardLayout;
 export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
+  const resNews = await fetch(`${process.env.WEBAPP_URL}/api/news/new`);
+  const news = await resNews.json();
+
+  if (resNews.status !== 200) {
+    console.error(news);
+    throw new Error("Failed to fetch API");
+  }
+
   const resNewPosts = await fetch(`${process.env.WEBAPP_URL}/api/posts/new`);
   const newPosts = await resNewPosts.json();
 
@@ -54,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
+      news,
       newPosts,
       trendPosts,
     },
