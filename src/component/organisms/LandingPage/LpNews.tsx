@@ -9,19 +9,21 @@ import {
 import type { LandingPageNews } from "src/type/types";
 import { rawDateToYearMonthDay } from "src/utils/dateFormatter";
 
-type Props = LandingPageNews;
+type Props = {
+  news: LandingPageNews;
+};
 
 export const LpNews: FC<Props> = (props) => {
-  const landingPageNews = props;
-  const date = rawDateToYearMonthDay(landingPageNews.publishedAt);
+  const { news } = props;
+  const date = rawDateToYearMonthDay(news.publishedAt);
   return (
     <div className="container mx-auto w-11/12 max-w-lg">
       <div className="hover:opacity-50">
         <NewsElement
-          id={landingPageNews.id}
+          id={news.id}
           date={date || BaseNewsDate}
-          typeOfNews={landingPageNews.categoryName || BaseNewsType}
-          title={landingPageNews.title || BaseNewsTitle}
+          typeOfNews={news.categoryName || BaseNewsType}
+          title={news.title || BaseNewsTitle}
         />
       </div>
       <div className="flex justify-center mt-4 hover:opacity-50">
