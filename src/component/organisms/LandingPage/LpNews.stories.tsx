@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof LpNews> = () => {
   return (
     <LpNews
       news={{
-        id: 0,
+        id: "aaa",
         title: "",
         content: "",
         typeOfNews: "NOTICE",

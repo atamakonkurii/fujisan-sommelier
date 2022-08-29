@@ -18,7 +18,7 @@ export default {
 const Template: ComponentStory<typeof NewsElement> = () => {
   return (
     <NewsElement
-      id={1}
+      id={"aaa"}
       date={BaseNewsDateFormat}
       typeOfNews={BaseNewsType}
       title={BaseNewsTitle}

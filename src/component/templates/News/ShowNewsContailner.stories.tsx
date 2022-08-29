@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof ShowNewsContainer> = () => {
   return (
     <ShowNewsContainer
       news={{
-        id: 0,
+        id: "aaa",
         title: "",
         content: "",
         typeOfNews: "NOTICE",

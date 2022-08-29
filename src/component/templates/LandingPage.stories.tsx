@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof LandingPage> = () => {
   return (
     <LandingPage
       news={{
-        id: 0,
+        id: "aaa",
         title: "",
         content: "",
         typeOfNews: "NOTICE",

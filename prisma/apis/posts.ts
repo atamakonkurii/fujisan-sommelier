@@ -26,7 +26,7 @@ export const prismaTrendPostFindMany = async () => {
 };
 
 /* 投稿を取得 */
-export const prismaPostFindUnique = async (postId: number) => {
+export const prismaPostFindUnique = async (postId: string) => {
   return await prisma.post.findUnique({
     where: {
       id: postId,

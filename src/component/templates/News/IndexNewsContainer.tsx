@@ -17,7 +17,7 @@ export const IndexNewsContainer: FC<Props> = (props) => {
           return (
             <div key={news.id} className="flex items-center px-3 h-20">
               <NewsElement
-                id={Number(news.id)}
+                id={String(news.id)}
                 date={rawDateToYearMonthDay(String(news.publishedAt))}
                 typeOfNews={news.typeOfNews}
                 title={news.title}
