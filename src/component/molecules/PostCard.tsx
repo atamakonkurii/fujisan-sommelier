@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-  id: number;
+  id: string;
   postPhotoUrl: string;
   content: string;
   favoriteCount: number;

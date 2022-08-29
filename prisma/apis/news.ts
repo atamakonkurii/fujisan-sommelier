@@ -15,7 +15,7 @@ export const prismaNewNewsFindFirst = async () => {
 };
 
 /* お知らせを取得 */
-export const prismaNewsFindUnique = async (newsId: number) => {
+export const prismaNewsFindUnique = async (newsId: string) => {
   return await prisma.news.findUnique({
     where: {
       id: newsId,

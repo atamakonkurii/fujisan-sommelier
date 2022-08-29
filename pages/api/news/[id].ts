@@ -8,6 +8,6 @@ export default async function handler(
 ) {
   /* お知らせを取得 */
   const { id } = req.query;
-  const news = await prismaNewsFindUnique(Number(id));
+  const news = await prismaNewsFindUnique(String(id));
   res.status(200).json(news);
 }

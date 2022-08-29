@@ -8,6 +8,6 @@ export default async function handler(
 ) {
   /* 投稿リストを取得 */
   const { id } = req.query;
-  const post = await prismaPostFindUnique(Number(id));
+  const post = await prismaPostFindUnique(String(id));
   res.status(200).json(post);
 }
