@@ -5,7 +5,6 @@ import { ShowPosts } from "src/pages/posts/[id]";
 import type { PostShowPageType } from "src/type/types";
 
 const ShowPostsPage: CustomNextPage<PostShowPageType> = (post) => {
-  console.warn(post);
   return <ShowPosts {...post} />;
 };
 
