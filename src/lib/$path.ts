@@ -16,6 +16,9 @@ export const pagesPath = {
   "privacy_policy": {
     $url: (url?: { hash?: string }) => ({ pathname: '/privacy_policy' as const, hash: url?.hash })
   },
+  "sign_in": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/sign_in' as const, hash: url?.hash })
+  },
   "specific_commercial_transaction": {
     $url: (url?: { hash?: string }) => ({ pathname: '/specific_commercial_transaction' as const, hash: url?.hash })
   },
