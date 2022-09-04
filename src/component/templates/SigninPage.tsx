@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 import { Box, Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { showNotification } from "@mantine/notifications";
 import { useRouter } from "next/router";
 import type { FC } from "react";
 import { useAuth } from "src/context/AuthContext";
@@ -13,8 +14,17 @@ export const SigninPage: FC = () => {
     console.warn(user);
     try {
       await login(values.email, values.password);
+      showNotification({
+        title: "Sign in Success",
+        message: "ログインに成功しました👍",
+      });
       router.push("/");
     } catch (err) {
+      showNotification({
+        title: "Sign in Failed",
+        message: "ログインに失敗しました😢",
+        color: "red",
+      });
       console.warn(err);
     }
   };
@@ -61,6 +71,10 @@ export const SigninPage: FC = () => {
           <Button
             onClick={() => {
               logout();
+              showNotification({
+                title: "Sign out Success",
+                message: "ログアウトしました💨",
+              });
               router.push("/");
             }}
           >
