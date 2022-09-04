@@ -7,11 +7,11 @@ export const pagesPath = {
   },
   "posts": {
     _id: (id: string | number) => ({
-      "new": {
-        $url: (url?: { hash?: string }) => ({ pathname: '/posts/[id]/new' as const, query: { id }, hash: url?.hash })
-      },
       $url: (url?: { hash?: string }) => ({ pathname: '/posts/[id]' as const, query: { id }, hash: url?.hash })
-    })
+    }),
+    "new": {
+      $url: (url?: { hash?: string }) => ({ pathname: '/posts/new' as const, hash: url?.hash })
+    }
   },
   "privacy_policy": {
     $url: (url?: { hash?: string }) => ({ pathname: '/privacy_policy' as const, hash: url?.hash })

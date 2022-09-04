@@ -1,6 +1,6 @@
 import type { CustomNextPage } from "next";
 import { StandardLayout } from "src/component/layout/StandardLayout";
-import { NewPosts } from "src/pages/posts/[id]/new";
+import { NewPosts } from "src/pages/posts/new";
 
 const NewPostsPage: CustomNextPage = () => {
   return <NewPosts />;
