@@ -21,7 +21,6 @@ export const AuthContextProvider = ({
   const [user, setUser] = useState<any>(null);
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const [loading, setLoading] = useState(true);
-  console.warn(user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

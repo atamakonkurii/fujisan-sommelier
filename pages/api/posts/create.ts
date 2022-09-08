@@ -8,7 +8,6 @@ export default async function handler(
 ) {
   /* 投稿を作成 */
   try {
-    console.warn(req.body);
     const post = await prismaPostCreate(req.body);
     res.status(200).json(post);
     return;
