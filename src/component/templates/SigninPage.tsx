@@ -8,10 +8,9 @@ import { useAuth } from "src/context/AuthContext";
 
 export const SigninPage: FC = () => {
   const router = useRouter();
-  const { login, logout, user } = useAuth();
+  const { login, logout } = useAuth();
 
   const handleLogin = async (values: any) => {
-    console.warn(user);
     try {
       await login(values.email, values.password);
       showNotification({
@@ -25,7 +24,6 @@ export const SigninPage: FC = () => {
         message: "ログインに失敗しました😢",
         color: "red",
       });
-      console.warn(err);
     }
   };
 
