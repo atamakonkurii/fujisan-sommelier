@@ -10,23 +10,23 @@ import type { DropzoneProps } from "@mantine/dropzone";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { useForm } from "@mantine/form";
 import { IconPhoto, IconUpload, IconX } from "@tabler/icons";
+import router from "next/router";
 
-const handleLogin = async (values: any) => {
+const handleCreatePost = async (values: any) => {
   console.warn(values);
-  try {
-    // await login(values.email, values.password);
-    // showNotification({
-    //   title: "Sign in Success",
-    //   message: "ログインに成功しました👍",
-    // });
-    // router.push("/");
-  } catch (err) {
-    // showNotification({
-    //   title: "Sign in Failed",
-    //   message: "ログインに失敗しました😢",
-    //   color: "red",
-    // });
-    // console.warn(err);
+  const res = await fetch("/api/posts/create", {
+    method: "POST",
+    body: JSON.stringify(values),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const status = await res.status;
+
+  if (status === 200) {
+    router.push("/");
+  } else {
+    alert("エラー");
   }
 };
 
@@ -44,7 +44,7 @@ export const PostNew = (props: Partial<DropzoneProps>) => {
     <div className="max-w-full sm:max-w-3xl">
       <form
         onSubmit={form.onSubmit((values) => {
-          handleLogin(values);
+          handleCreatePost(values);
         })}
       >
         <div className="flex justify-end items-center mb-2">
