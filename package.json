@@ -34,6 +34,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",
+    "@google-cloud/storage": "^6.4.2",
     "@mantine/core": "^5.2.4",
     "@mantine/dropzone": "^5.2.6",
     "@mantine/form": "^5.2.4",
