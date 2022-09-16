@@ -10,9 +10,14 @@ type Props = {
   date: string;
 };
 
-export const PostCard = (props: Props) => {
-  const { content, date, favoriteCount, id, postPhotoUrl, publisherPhotoUrl } =
-    props;
+export const PostCard = ({
+  content,
+  date,
+  favoriteCount,
+  id,
+  postPhotoUrl,
+  publisherPhotoUrl,
+}: Props) => {
   return (
     <Link href={`/posts/${id}`}>
       <div className="max-w-full bg-white rounded-lg shadow-md sm:max-w-3xl">

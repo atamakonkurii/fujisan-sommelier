@@ -8,8 +8,7 @@ type Props = {
   news: News[];
 };
 
-const NewsPage: CustomNextPage<Props> = (props) => {
-  const { news } = props;
+const NewsPage: CustomNextPage<Props> = ({ news }) => {
   return <NewsIndex newsIndex={news} />;
 };
 

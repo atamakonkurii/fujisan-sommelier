@@ -41,8 +41,7 @@ export const prismaPostCreate = async (props: Post) => {
   return await prisma.post.create({
     data: {
       authorId: "cl7fbzzlj0013wjapooycvl2u",
-      photoUrl:
-        "https://storage.googleapis.com/fujisan-sommelier-bucket/test/sam1.webp",
+      photoUrl: props.photoUrl,
       content: props.content,
       draftContent: props.content,
       published: props.published,
