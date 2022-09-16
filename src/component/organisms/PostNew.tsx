@@ -10,7 +10,9 @@ import type { DropzoneProps, FileWithPath } from "@mantine/dropzone";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { useForm } from "@mantine/form";
 import { IconPhoto, IconUpload, IconX } from "@tabler/icons";
+import Image from "next/image";
 import router from "next/router";
+import { useState } from "react";
 
 const handleCreatePost = async (values: any) => {
   console.warn(values);
@@ -41,7 +43,7 @@ const handleUploadImage = async (files: FileWithPath[]) => {
   const status = await res.status;
 
   if (status === 200) {
-    router.push("/");
+    return res;
   } else {
     alert("エラー");
   }
@@ -49,11 +51,13 @@ const handleUploadImage = async (files: FileWithPath[]) => {
 
 export const PostNew = (props: Partial<DropzoneProps>) => {
   const theme = useMantineTheme();
+  const [imageUrl, setImageUrl] = useState<string>("");
 
   const form = useForm({
     initialValues: {
       content: "",
       published: false,
+      photoUrl: "",
     },
   });
 
@@ -76,9 +80,14 @@ export const PostNew = (props: Partial<DropzoneProps>) => {
           </Button>
         </div>
         <Dropzone
-          onDrop={(files) => {
+          onDrop={async (files) => {
             console.warn("accepted files", files);
-            return handleUploadImage(files);
+            const res = await handleUploadImage(files);
+            if (res) {
+              const resPhotoUrl = await res.json();
+              setImageUrl(resPhotoUrl.fileUrl);
+              form.setFieldValue("photoUrl", resPhotoUrl.fileUrl);
+            }
           }}
           onReject={(files) => {
             return console.warn("rejected files", files);
@@ -124,6 +133,18 @@ export const PostNew = (props: Partial<DropzoneProps>) => {
             </div>
           </Group>
         </Dropzone>
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            width={30}
+            height={30}
+            layout="responsive"
+            alt="publisher"
+            className="rounded-full"
+          />
+        ) : (
+          <></>
+        )}
         <div className="mt-4"></div>
         <Textarea
           placeholder="Your comment"

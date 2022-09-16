@@ -40,7 +40,7 @@ export default async function handler(req: any, res: any) {
       metadata: { contentType: body.file.mimetype },
     });
     res.status(200).json({
-      fileUrl: `https://storage.googleapis.com/${bucketName}/test/${file.name}`,
+      fileUrl: `https://storage.googleapis.com/${bucketName}/${file.name}`,
     });
   } catch (e) {
     console.warn(e);
