@@ -32,7 +32,6 @@ export type NewsShowResponse = {
 };
 
 export type PostShowType = {
-  id: number;
   postPhotoUrl: string;
   content: string;
   favoriteCount: number;
@@ -42,6 +41,7 @@ export type PostShowType = {
 
 export type PostShowPageType = {
   post: {
+    authorId: string;
     photoUrl: string | null;
     content: string | null;
     publishedAt: Date | null;

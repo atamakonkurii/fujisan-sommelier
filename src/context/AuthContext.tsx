@@ -18,20 +18,27 @@ export const AuthContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const [currentUser, setCurrentUser] = useState<any>(null);
   const [firebaseAuthUser, setFirebaseAuthUser] = useState<any>(null);
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseAuthUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseAuthUser) => {
       if (firebaseAuthUser) {
         setFirebaseAuthUser({
           uid: firebaseAuthUser.uid,
           email: firebaseAuthUser.email,
           displayName: firebaseAuthUser.displayName,
         });
+        const res = await fetch(
+          `/api/user/firebaseAuth/${firebaseAuthUser.uid}`
+        );
+        const resUser = await res.json();
+        setCurrentUser(resUser);
       } else {
         setFirebaseAuthUser(null);
+        setCurrentUser(null);
       }
       setLoading(false);
     });
@@ -55,7 +62,9 @@ export const AuthContextProvider = ({
   };
 
   return (
-    <AuthContext.Provider value={{ firebaseAuthUser, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ currentUser, firebaseAuthUser, login, signup, logout }}
+    >
       {loading ? null : children}
     </AuthContext.Provider>
   );
