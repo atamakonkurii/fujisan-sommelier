@@ -10,7 +10,7 @@ datasource db {
 
 model User {
   id    String     @id @default(cuid())
-  firebaseAuthId  String?
+  firebaseAuthId  String? @unique
   name  String?
   photoUrl  String?
   isAdmin   Boolean @default(false)
