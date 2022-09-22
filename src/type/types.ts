@@ -41,6 +41,7 @@ export type PostShowType = {
 
 export type PostShowPageType = {
   post: {
+    id: string;
     authorId: string;
     photoUrl: string | null;
     content: string | null;
