@@ -15,7 +15,21 @@ import {
 import { useAuth } from "src/context/AuthContext";
 import type { PostShowPageType } from "src/type/types";
 
-const deletePost = async (postId: string, router: NextRouter) => {
+const deletePost = async (
+  postId: string,
+  photoUrl: string,
+  router: NextRouter
+) => {
+  const regex = new RegExp(
+    "https://storage.googleapis.com/fujisan-sommelier-bucket/",
+    "i"
+  );
+  const fileName = photoUrl.toString().split(regex)[1];
+  await fetch(`/api/image/delete`, {
+    method: "DELETE",
+    body: fileName,
+  });
+
   const res = await fetch(`/api/posts/${postId}/delete`, {
     method: "DELETE",
   });
@@ -36,7 +50,11 @@ const deletePost = async (postId: string, router: NextRouter) => {
   }
 };
 
-const openDeletePostModal = (postId: string, router: NextRouter) => {
+const openDeletePostModal = (
+  postId: string,
+  photoUrl: string,
+  router: NextRouter
+) => {
   openConfirmModal({
     title: "投稿を削除しますか？",
     centered: true,
@@ -48,7 +66,7 @@ const openDeletePostModal = (postId: string, router: NextRouter) => {
     labels: { confirm: "削除する", cancel: "キャンセル" },
     confirmProps: { color: "red" },
     onConfirm: () => {
-      deletePost(postId, router);
+      deletePost(postId, photoUrl, router);
     },
   });
 };
@@ -71,12 +89,12 @@ export const PostShowPage: FC<PostShowPageType> = (post) => {
         />
       </div>
 
-      {authorId === currentUser?.id ? (
+      {authorId === currentUser?.id && photoUrl ? (
         <div className="flex justify-center pb-10">
           <Button
             color="red"
             onClick={() => {
-              openDeletePostModal(id, router);
+              openDeletePostModal(id, photoUrl, router);
             }}
           >
             削除

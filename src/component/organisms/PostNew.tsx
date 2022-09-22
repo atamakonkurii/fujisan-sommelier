@@ -36,7 +36,7 @@ const handleUploadImage = async (files: FileWithPath[]) => {
   console.warn(files[0].path);
   const formData = new FormData();
   formData.append("file", files[0]);
-  const res = await fetch("/api/upload/image", {
+  const res = await fetch("/api/image/upload", {
     method: "POST",
     body: formData,
   });
