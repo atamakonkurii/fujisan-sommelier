@@ -36,7 +36,7 @@ export const prismaPostFindUnique = async (postId: string) => {
   });
 };
 
-/* 投稿を取得 */
+/* 投稿を作成 */
 export const prismaPostCreate = async (props: Post) => {
   return await prisma.post.create({
     data: {
@@ -46,6 +46,15 @@ export const prismaPostCreate = async (props: Post) => {
       draftContent: props.content,
       published: props.published,
       publishedAt: new Date(),
+    },
+  });
+};
+
+/* 投稿を削除 */
+export const prismaPostDelete = async (postId: string) => {
+  return await prisma.post.delete({
+    where: {
+      id: postId,
     },
   });
 };

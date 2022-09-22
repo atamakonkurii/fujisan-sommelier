@@ -39,6 +39,7 @@
     "@mantine/dropzone": "^5.2.6",
     "@mantine/form": "^5.2.4",
     "@mantine/hooks": "^5.2.4",
+    "@mantine/modals": "^5.4.0",
     "@mantine/next": "^5.2.4",
     "@mantine/notifications": "^5.2.5",
     "@prisma/client": "^4.1.1",
