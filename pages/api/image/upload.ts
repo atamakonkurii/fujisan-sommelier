@@ -34,7 +34,7 @@ export default async function handler(req: any, res: any) {
     const uuid = uuidv4();
     const bucketName = process.env.GOOGLE_SERVICE_BUCKET_NAME as string;
     const bucket = storage.bucket(bucketName);
-    const file = bucket.file(`test/${uuid}`);
+    const file = bucket.file(`posts/${uuid}`);
 
     await file.save(body.file.buffer, {
       metadata: { contentType: body.file.mimetype },
